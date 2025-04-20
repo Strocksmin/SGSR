@@ -2,19 +2,5 @@ language: java
 jdk:
   - openjdk23
 
-cache:
-  directories:
-    - $HOME/.m2
-
 script:
   - mvn test
-
-branches:
-  only:
-    - main
-    - develop
-
-notifications:
-  email:
-    on_success: never
-    on_failure: change
