@@ -54,7 +54,7 @@ public class DriverFactory {
                 fos.write(decodedImage);
                 System.out.println("Сохранен кадр: " + fileName);
             } catch (IOException e) {
-                log.error("ERROR: {}", e.getCause());
+                log.error("Error: " + e.getMessage());
             }
 
             devTools.send(Page.screencastFrameAck(frame.getSessionId()));
