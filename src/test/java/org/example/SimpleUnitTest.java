@@ -22,6 +22,12 @@ class SimpleUnitTest {
         assertEquals(5, text.length());
     }
 
+    @Test
+    void testStringContains() {
+        String message = "Welcome to Java";
+        assertTrue(message.contains("Java"));
+        assertFalse(message.contains("Python"));
+    }
 
     @Test
     void testStringSubstring() {
