@@ -12,5 +12,6 @@ public class Main {
             recorder.awaitElement(By.cssSelector("#CorporationName"), 10).sendKeys("Ben");
             recorder.awaitElement(By.cssSelector("button[type=submit]"), 10).click();
         });
+        
     }
 }
