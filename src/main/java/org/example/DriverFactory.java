@@ -82,7 +82,7 @@ public class DriverFactory {
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("ERROR");
                 }
             }
         });
