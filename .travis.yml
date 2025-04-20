@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk23
+  - openjdk17
 
 script:
   - mvn test
