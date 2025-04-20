@@ -2,5 +2,9 @@ language: java
 jdk:
   - openjdk17
 
+addons:
+  sonarcloud:
+    organization: "aekarabanov"
+    token: $Sonar
 script:
-  - mvn test
+  - mvn clean verify sonar:sonar -Dsonar.projectKey=SGSR -Dsonar.organization=aekarabanov -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$Sonar
