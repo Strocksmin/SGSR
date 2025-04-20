@@ -8,6 +8,7 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v131.page.Page;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +55,7 @@ public class DriverFactory {
                 fos.write(decodedImage);
                 System.out.println("Сохранен кадр: " + fileName);
             } catch (IOException e) {
-                log.error("Error: " + e.getMessage());
+                LoggerFactory.getLogger("Logger").error("Error: {}", e.getMessage());
             }
 
             devTools.send(Page.screencastFrameAck(frame.getSessionId()));
