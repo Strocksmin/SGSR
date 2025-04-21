@@ -1,5 +1,6 @@
 package org.example;
 
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,6 +8,7 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v131.page.Page;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,6 +22,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Slf4j
 public class DriverFactory {
 
     WebDriver driver;
@@ -52,7 +55,7 @@ public class DriverFactory {
                 fos.write(decodedImage);
                 System.out.println("Сохранен кадр: " + fileName);
             } catch (IOException e) {
-                e.printStackTrace();
+                LoggerFactory.getLogger("Logger").error("Error: {}", e.getMessage());
             }
 
             devTools.send(Page.screencastFrameAck(frame.getSessionId()));
@@ -82,7 +85,7 @@ public class DriverFactory {
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("ERROR");
                 }
             }
         });
